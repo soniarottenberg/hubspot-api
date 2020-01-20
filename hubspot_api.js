@@ -1,4 +1,4 @@
-var request = require("request")
+const request = require("request")
 const returnedCompanies = [];
 const API_KEY = '3b027ac0-0ae1-489f-b424-822c3df0b024'
 const count = 5;
