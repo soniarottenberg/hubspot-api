@@ -30,7 +30,6 @@ getCompanies = () => {
             getCompanies(parsedBody['offset'])
         } else {
             //print out all companies
-            
             console.log(returnedCompanies)
         }
     })
