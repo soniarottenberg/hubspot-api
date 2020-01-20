@@ -12,8 +12,9 @@ getCompanies = () => {
 
     const hapikeyParam = `hapikey=${API_KEY}`
     const paramsString = `?count=${count}&${hapikeyParam}&${offsetParam}`;
+    const properties = `&properties=name&properties=domain&properties=equipement`
 
-    const finalUrl = `https://api.hubapi.com/companies/v2/companies/paged${paramsString}`
+    const finalUrl = `https://api.hubapi.com/companies/v2/companies/paged${paramsString}${properties}`
     console.log(finalUrl)
     request(finalUrl, (error, response, body) => {
         if (error) {
@@ -23,11 +24,13 @@ getCompanies = () => {
         const parsedBody = JSON.parse(body)
         parsedBody.companies.forEach(company => {
             returnedCompanies.push(company);
+            console.log(company);
         });
         if (parsedBody['has-more']) {
             getCompanies(parsedBody['offset'])
         } else {
             //print out all companies
+            
             console.log(returnedCompanies)
         }
     })
