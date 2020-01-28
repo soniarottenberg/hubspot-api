@@ -1,5 +1,5 @@
 const request = require("request")
-const API_KEY = '3b027ac0-0ae1-489f-b424-822c3df0b024'
+const API_KEY = 'b3f7df6a-18ee-46d9-a1e2-910235853b6a'
 const count = 5;
 let returnedCompanies = [];
 
@@ -15,7 +15,7 @@ getCompanies = () => {
     const paramsString = `?count=${count}&${hapikeyParam}&${offsetParam}&properties=name&properties=domain&properties=equipement`;
 
     const url = `https://api.hubapi.com/companies/v2/companies/paged${paramsString}`
-    console.log(url)
+    
     request(url, (error, response, body) => {
         if (error) {
             console.log('error', error)
